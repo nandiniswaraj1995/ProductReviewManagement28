@@ -46,6 +46,11 @@ namespace ProductReviewManagement
             management.SelectedRecords(productReviewList);
             Console.WriteLine();
 
+            //UC4
+            management.RetrieveCountOfRecords(productReviewList);
+            Console.WriteLine();
+
+
 
         }
     }
