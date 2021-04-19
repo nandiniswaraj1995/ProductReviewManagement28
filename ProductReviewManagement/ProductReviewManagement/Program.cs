@@ -38,6 +38,10 @@ namespace ProductReviewManagement
 
             };
 
+            Management management = new Management();
+            management.TopRecords(productReviewList);
+
+
         }
     }
 }
