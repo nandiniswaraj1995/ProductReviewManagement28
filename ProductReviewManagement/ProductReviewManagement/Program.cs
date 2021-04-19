@@ -55,9 +55,12 @@ namespace ProductReviewManagement
             Console.WriteLine();
 
             //UC6
-            management.skipTopFiveRecords(productReviewList);
+          //  management.skipTopFiveRecords(productReviewList);
             Console.WriteLine();
 
+            //UC8
+            LinqToDataTable linqToDataTable = new LinqToDataTable();
+            linqToDataTable.AddToDataTableDemo();
 
 
 
