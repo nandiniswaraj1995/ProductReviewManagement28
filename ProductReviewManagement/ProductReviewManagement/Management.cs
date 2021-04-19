@@ -53,7 +53,7 @@ namespace ProductReviewManagement
         
               public void RetrieveProductIdAndReview(List<ProductReview> listProductReview)
               {
-            var recordedData =  listProductReview.Select(item => new ProductReview
+                 var recordedData =  listProductReview.Select(item => new ProductReview
                                         {
                                        ProducID = item.ProducID,
                                        Review = item.Review,
@@ -61,14 +61,27 @@ namespace ProductReviewManagement
                                        ).ToList();
 
 
-           // Console.WriteLine(recordedData);
-            foreach (var list in recordedData)
-            {
+                 foreach (var list in recordedData)
+                 {
                Console.WriteLine(list.ProducID + "--------" +list.Review);
 
+                 }
+            }
+
+
+           public void skipTopFiveRecords(List<ProductReview> listProductReview)
+           {
+            var recordedData = (from productReviews in listProductReview
+                                orderby productReviews.Rating descending
+                                select productReviews).Skip(5);
+
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID
+                    + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
             }
         }
-
 
     }
 }

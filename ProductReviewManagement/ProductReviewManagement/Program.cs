@@ -39,7 +39,7 @@ namespace ProductReviewManagement
             };
             //UC2
             Management management = new Management();
-          //  management.TopRecords(productReviewList);
+           // management.TopRecords(productReviewList);
             Console.WriteLine();
 
             //UC3
@@ -47,12 +47,17 @@ namespace ProductReviewManagement
             Console.WriteLine();
 
             //UC4
-           // management.RetrieveCountOfRecords(productReviewList);
+          //  management.RetrieveCountOfRecords(productReviewList);
             Console.WriteLine();
 
             //UC5
-            management.RetrieveProductIdAndReview(productReviewList);
+           // management.RetrieveProductIdAndReview(productReviewList);
             Console.WriteLine();
+
+            //UC6
+            management.skipTopFiveRecords(productReviewList);
+            Console.WriteLine();
+
 
 
 
