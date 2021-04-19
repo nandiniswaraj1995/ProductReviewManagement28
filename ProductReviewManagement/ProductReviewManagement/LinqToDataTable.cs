@@ -7,9 +7,8 @@ namespace ProductReviewManagement
 {
     class LinqToDataTable
     {
-        public void AddToDataTableDemo()
+        public void AddToDataTableDemo(DataTable table)
         {
-            DataTable table = new DataTable();
             table.Columns.Add("ProducID");
             table.Columns.Add("UserID");
             table.Columns.Add("Rating");
@@ -30,8 +29,7 @@ namespace ProductReviewManagement
             table.Rows.Add(2, 2, 4, "best", true);
             table.Rows.Add(3, 3, 2, "bad", false);
 
-            DisplayProductsFromTable(table);
-        }
+           }
 
         public void DisplayProductsFromTable(DataTable table)
         {
@@ -44,6 +42,19 @@ namespace ProductReviewManagement
                 Console.WriteLine("ProducID:{0}, UserID:{1}, Rating:{2}, Review:{3}, isLike:{4}", row["ProducID"], row["UserID"], row["Rating"], row["Review"], row["isLike"]);
             }
         }
+
+
+        public void RetriveDataFromDataTableWhereisLikeIsTrue(DataTable table)
+        {
+            var recordData = (from rows in table.AsEnumerable()
+                              where rows.Field<string>("isLike") == "True"
+                              select rows);
+            foreach (DataRow row in recordData)
+            {
+                Console.WriteLine("ProducID:{0}, UserID:{1}, Rating:{2}, Review:{3}, isLike:{4}", row["ProducID"], row["UserID"], row["Rating"], row["Review"], row["isLike"]);
+            }
+        }
+
 
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ProductReviewManagement
 {
@@ -59,8 +60,16 @@ namespace ProductReviewManagement
             Console.WriteLine();
 
             //UC8
+            DataTable table = new DataTable();
             LinqToDataTable linqToDataTable = new LinqToDataTable();
-            linqToDataTable.AddToDataTableDemo();
+            linqToDataTable.AddToDataTableDemo(table);
+          //  linqToDataTable.DisplayProductsFromTable(table);
+
+            Console.WriteLine();
+
+            //UC9
+            linqToDataTable.RetriveDataFromDataTableWhereisLikeIsTrue(table);
+            Console.WriteLine();
 
 
 
